@@ -1,23 +1,20 @@
 package by.romanovich.githubclient.ui.user
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import by.romanovich.githubclient.R
-import by.romanovich.githubclient.domain.User
+import by.romanovich.githubclient.databinding.RepoItemLayoutBinding
+import by.romanovich.githubclient.domain.GitProjectEntity
+
 
 
 class GitProjectsAdapter : RecyclerView.Adapter<GitProjectsAdapter.RepoItemViewHolder>() {
 
-    private var project: List<String> = listOf()
-    var listener: OnItemClick? = null
+    private var project: List<GitProjectEntity> = listOf()
 
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun setProject(data: List<String>) {
+    fun setProject(data: List<GitProjectEntity>) {
         project = data
         notifyDataSetChanged()
     }
@@ -34,14 +31,11 @@ class GitProjectsAdapter : RecyclerView.Adapter<GitProjectsAdapter.RepoItemViewH
 
     override fun getItemCount(): Int = project.size
 
-    fun interface OnItemClick {
-        fun onClick(user: User)
-    }
-
     inner class RepoItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(project: String) {
-            itemView.findViewById<TextView>(R.id.name_repo_text_view).text = project
+        private val binding = RepoItemLayoutBinding.bind(view)
+
+        fun bind(project: GitProjectEntity) {
+            binding.nameRepoTextView.text = project.name
         }
     }
-
 }

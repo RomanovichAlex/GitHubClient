@@ -1,4 +1,4 @@
-package by.romanovich.githubclient.domain
+package by.romanovich.githubclient.data
 
 import android.os.Parcelable
 import by.romanovich.githubclient.R
@@ -17,15 +17,15 @@ data class Title(
     val works: List<String> = listOf("0", "0")
 ) : Parcelable
 
-fun getDefaultTitle() = Title("User", 0, R.drawable.ic_user)
+fun getDefaultTitle() = Title("User", 20, R.drawable.ic_user)
 
 fun getUsers(): List<User> {
     return listOf(
-        User(Title("User1", 0, R.drawable.ic_user, listOf())),
+        User(Title("RomanovichAlex", 20, R.drawable.ic_user, listOf())),
         User(
             Title(
-                "User2",
-                1,
+                "borhammere",
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
@@ -33,7 +33,7 @@ fun getUsers(): List<User> {
         User(
             Title(
                 "User3",
-                2,
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
@@ -41,7 +41,7 @@ fun getUsers(): List<User> {
         User(
             Title(
                 "User4",
-                3,
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
@@ -49,7 +49,7 @@ fun getUsers(): List<User> {
         User(
             Title(
                 "User5",
-                4,
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
@@ -57,7 +57,7 @@ fun getUsers(): List<User> {
         User(
             Title(
                 "User6",
-                5,
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
@@ -65,7 +65,7 @@ fun getUsers(): List<User> {
         User(
             Title(
                 "User7",
-                6,
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
@@ -73,7 +73,7 @@ fun getUsers(): List<User> {
         User(
             Title(
                 "User8",
-                7,
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
@@ -81,7 +81,7 @@ fun getUsers(): List<User> {
         User(
             Title(
                 "User9",
-                8,
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
@@ -89,7 +89,7 @@ fun getUsers(): List<User> {
         User(
             Title(
                 "User10",
-                9,
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
@@ -97,7 +97,7 @@ fun getUsers(): List<User> {
         User(
             Title(
                 "User11",
-                10,
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
@@ -105,11 +105,11 @@ fun getUsers(): List<User> {
         User(
             Title(
                 "User12",
-                11,
+                20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
-        ),
+        )
     )
 }
 

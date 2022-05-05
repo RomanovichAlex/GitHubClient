@@ -1,9 +1,13 @@
 package by.romanovich.githubclient.domain
 
+import by.romanovich.githubclient.data.User
+import io.reactivex.rxjava3.core.Single
+
 interface Repository {
-    fun getUserFromServer(): User
+    fun getUserFromServer(name: String): Single<List<GitProjectEntity>>
 
     fun getUserFromLocalStorage(): List<User>
 
-    fun getWorksUsersFromLocalStorage(name: String): List<String>
+    fun getPojectsUsersFromLocalStorage(name: String): List<String>
 }
+

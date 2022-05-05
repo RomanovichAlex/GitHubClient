@@ -3,15 +3,17 @@ package by.romanovich.githubclient.ui.listUsers
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import by.romanovich.githubclient.AppState
-import by.romanovich.githubclient.data.RepositoryImpl
+import by.romanovich.githubclient.App
 import by.romanovich.githubclient.domain.Repository
+import by.romanovich.githubclient.ui.utils.AppState
+import by.romanovich.githubclient.ui.utils.BaseViewModel
 
 
-class ListUsersViewModel : ViewModel(), UserContracts.ViewModelContract {
+class ListUsersViewModel(override val id: String) : ViewModel(), UserContracts.ViewModelContract,
+    BaseViewModel {
 
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
-    private val repo: Repository = RepositoryImpl()
+    private val repo: Repository = App().gitProjectsRepo
 
     fun getData(): LiveData<AppState> = liveDataToObserve
 
@@ -19,7 +21,6 @@ class ListUsersViewModel : ViewModel(), UserContracts.ViewModelContract {
         liveDataToObserve.value = AppState.Loading
 
         Thread {
-            Thread.sleep(1000)
 
             val user = repo.getUserFromLocalStorage()
 
@@ -27,5 +28,4 @@ class ListUsersViewModel : ViewModel(), UserContracts.ViewModelContract {
 
         }.start()
     }
-
 }

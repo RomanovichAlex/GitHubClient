@@ -1,13 +1,15 @@
 package by.romanovich.githubclient.ui
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import by.romanovich.githubclient.R
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import by.romanovich.githubclient.data.User
 import by.romanovich.githubclient.databinding.ActivityMainBinding
 import by.romanovich.githubclient.ui.listUsers.ListUsersFragment
+import by.romanovich.githubclient.ui.user.CardUserFragment
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ListUsersFragment.Controller {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -16,8 +18,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.main_container, ListUsersFragment.newInstance())
+        if (savedInstanceState == null) {
+            val listUsersFragment: Fragment = ListUsersFragment()
+            supportFragmentManager.beginTransaction()
+                .add(binding.mainContainer.id, listUsersFragment)
+                .commit()
+        }
+    }
+
+    override fun openScreen(user: User) {
+        supportFragmentManager
+            .beginTransaction()
+            .addToBackStack(null)
+            .replace(
+                binding.mainContainer.id,
+                CardUserFragment.newInstance(user)
+            )
             .commit()
     }
 }

@@ -4,16 +4,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
-import by.romanovich.githubclient.AppState
 import by.romanovich.githubclient.R
+import by.romanovich.githubclient.app
+import by.romanovich.githubclient.data.User
 import by.romanovich.githubclient.databinding.CardUserFragmentBinding
-import by.romanovich.githubclient.domain.User
+import by.romanovich.githubclient.domain.GitProjectEntity
 import by.romanovich.githubclient.ui.base.BaseFragment
+import by.romanovich.githubclient.ui.utils.AppState
+import java.util.*
 
 
 class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentBinding::inflate) {
 
+    private val keyViewModelId = "key_card_view_model"
     private val adapter = GitProjectsAdapter()
     private var name: String = ""
 
@@ -28,13 +31,20 @@ class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentB
 
         binding.projectsRecyclerView.adapter = adapter
 
-        viewModel = ViewModelProvider(this).get(CardUserViewModel::class.java)
+        if (savedInstanceState != null) {
+            val viewModelId = savedInstanceState.getString(keyViewModelId)!!
+            viewModel = app.viewModelStore.getViewModel(viewModelId) as CardUserViewModel
+        } else {
+            val id = UUID.randomUUID().toString()
+            viewModel = CardUserViewModel(id)
+            app.viewModelStore.saveViewModel(viewModel)
+        }
 
         viewModel.getData().observe(viewLifecycleOwner) { state ->
             render(state)
         }
         name = user?.title?.name.toString()
-        viewModel.getProjects(name)
+        viewModel.getProjectsRetrofit(name)
 
     }
 
@@ -43,7 +53,7 @@ class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentB
         when (state) {
             is AppState.Success<*> -> {
 
-                val project: List<String> = state.data as List<String>
+                val project: List<GitProjectEntity> = state.data as List<GitProjectEntity>
                 adapter.setProject(project)
             }
             is AppState.Error -> {
@@ -58,11 +68,10 @@ class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentB
     }
 
     companion object {
-        fun newInstance(bundle: Bundle?): CardUserFragment {
-            val fragment = CardUserFragment()
-            fragment.arguments = bundle
-            return fragment
+        private const val USER_ARGS_KEY = "USER"
+        fun newInstance(user: User) = CardUserFragment().apply {
+            arguments = Bundle()
+            arguments?.putParcelable(USER_ARGS_KEY, user)
         }
     }
-
 }
