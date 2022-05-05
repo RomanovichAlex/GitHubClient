@@ -1,7 +1,7 @@
 package by.romanovich.githubclient.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import by.romanovich.githubclient.data.User
 import by.romanovich.githubclient.databinding.ActivityMainBinding

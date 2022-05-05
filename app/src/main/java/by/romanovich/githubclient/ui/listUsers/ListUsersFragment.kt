@@ -31,7 +31,7 @@ class ListUsersFragment :
         binding.usersRecyclerView.adapter = adapter
 
         if (savedInstanceState != null) {
-            val viewModelId = savedInstanceState.getString(keyViewModelId)!!
+            val viewModelId = savedInstanceState.getString(keyViewModelId) !!
             viewModel = app.viewModelStore.getViewModel(viewModelId) as ListUsersViewModel
         } else {
             val id = UUID.randomUUID().toString()
@@ -71,6 +71,7 @@ class ListUsersFragment :
     interface Controller {
         fun openScreen(user: User)
     }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (activity !is Controller) {

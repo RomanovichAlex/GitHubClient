@@ -9,7 +9,6 @@ import by.romanovich.githubclient.databinding.RepoItemLayoutBinding
 import by.romanovich.githubclient.domain.GitProjectEntity
 
 
-
 class GitProjectsAdapter : RecyclerView.Adapter<GitProjectsAdapter.RepoItemViewHolder>() {
 
     private var project: List<GitProjectEntity> = listOf()

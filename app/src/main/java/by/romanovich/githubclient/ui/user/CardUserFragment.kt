@@ -32,7 +32,7 @@ class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentB
         binding.projectsRecyclerView.adapter = adapter
 
         if (savedInstanceState != null) {
-            val viewModelId = savedInstanceState.getString(keyViewModelId)!!
+            val viewModelId = savedInstanceState.getString(keyViewModelId) !!
             viewModel = app.viewModelStore.getViewModel(viewModelId) as CardUserViewModel
         } else {
             val id = UUID.randomUUID().toString()

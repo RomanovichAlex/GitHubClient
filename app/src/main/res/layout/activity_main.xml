@@ -8,8 +8,8 @@
     tools:context=".ui.MainActivity">
 
     <fragment
-        android:name="by.romanovich.githubclient.ui.listUsers.ListUsersFragment"
         android:id="@+id/main_fragment"
+        android:name="by.romanovich.githubclient.ui.listUsers.ListUsersFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

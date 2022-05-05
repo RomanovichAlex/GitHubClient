@@ -15,7 +15,8 @@ class UserItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         @JvmStatic
         fun createView(parent: ViewGroup): UserItemViewHolder {
             val view =
-                LayoutInflater.from(parent.context).inflate(R.layout.users_item_layout, parent, false)
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.users_item_layout, parent, false)
             return UserItemViewHolder(view)
         }
     }

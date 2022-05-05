@@ -1,13 +1,8 @@
 package by.romanovich.githubclient.ui.listUsers
 
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import by.romanovich.githubclient.R
 import by.romanovich.githubclient.data.User
-import by.romanovich.githubclient.ui.listUsers.UserItemViewHolder.Companion.createView
 
 
 class UsersAdapter(

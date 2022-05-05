@@ -21,9 +21,9 @@
                 android:id="@+id/name_repo_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/project"
                 android:textSize="@dimen/H3"
-                android:textStyle="bold"
-                android:text="@string/project">
+                android:textStyle="bold">
 
             </TextView>
         </LinearLayout>
