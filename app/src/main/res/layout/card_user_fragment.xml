@@ -12,9 +12,9 @@
         android:id="@+id/card_view_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/CardMargin"
-        app:cardBackgroundColor="@color/lightBlue"
-        app:cardCornerRadius="@dimen/CardCornerRadius">
+        android:layout_margin="@dimen/card_margin"
+        app:cardBackgroundColor="@color/light_blue"
+        app:cardCornerRadius="@dimen/card_corner_radius">
 
         <LinearLayout
             android:layout_width="match_parent"
