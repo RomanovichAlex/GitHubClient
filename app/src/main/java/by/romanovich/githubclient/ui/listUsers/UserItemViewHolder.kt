@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import by.romanovich.githubclient.R
-import by.romanovich.githubclient.data.User
 import by.romanovich.githubclient.databinding.UsersItemLayoutBinding
+import by.romanovich.githubclient.domain.User
 
 class UserItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val binding = UsersItemLayoutBinding.bind(view)

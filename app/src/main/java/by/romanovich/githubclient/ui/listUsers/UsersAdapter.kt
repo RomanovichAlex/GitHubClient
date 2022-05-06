@@ -2,7 +2,7 @@ package by.romanovich.githubclient.ui.listUsers
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import by.romanovich.githubclient.data.User
+import by.romanovich.githubclient.domain.User
 
 
 class UsersAdapter(

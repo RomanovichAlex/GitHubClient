@@ -3,8 +3,8 @@ package by.romanovich.githubclient.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import by.romanovich.githubclient.data.User
 import by.romanovich.githubclient.databinding.ActivityMainBinding
+import by.romanovich.githubclient.domain.User
 import by.romanovich.githubclient.ui.listUsers.ListUsersFragment
 import by.romanovich.githubclient.ui.user.CardUserFragment
 

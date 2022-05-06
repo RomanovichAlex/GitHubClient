@@ -22,7 +22,7 @@ class CardUserViewModel(override val id: String) : ViewModel(), CardContracts.Vi
 
     override fun getProjects(name: String) {
         liveDataToObserve.value = AppState.Loading
-        val project = repo.getPojectsUsersFromLocalStorage(name)
+        val project = repo.getUserFromServer(name)
         liveDataToObserve.postValue(AppState.Success(project))
     }
 

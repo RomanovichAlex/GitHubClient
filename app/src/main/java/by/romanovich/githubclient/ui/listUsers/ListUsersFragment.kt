@@ -7,8 +7,8 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import by.romanovich.githubclient.R
 import by.romanovich.githubclient.app
-import by.romanovich.githubclient.data.User
 import by.romanovich.githubclient.databinding.ListUsersFragmentBinding
+import by.romanovich.githubclient.domain.User
 import by.romanovich.githubclient.ui.base.BaseFragment
 import by.romanovich.githubclient.ui.utils.AppState
 import java.util.*
