@@ -7,7 +7,7 @@ import androidx.core.view.isVisible
 import by.romanovich.githubclient.R
 import by.romanovich.githubclient.app
 import by.romanovich.githubclient.databinding.CardUserFragmentBinding
-import by.romanovich.githubclient.domain.GitProjectEntity
+import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import by.romanovich.githubclient.domain.User
 import by.romanovich.githubclient.ui.base.BaseFragment
 import by.romanovich.githubclient.ui.utils.AppState
@@ -45,7 +45,6 @@ class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentB
         }
         name = user?.title?.name.toString()
         viewModel.getProjectsRetrofit(name)
-
     }
 
     private fun render(state: AppState) {

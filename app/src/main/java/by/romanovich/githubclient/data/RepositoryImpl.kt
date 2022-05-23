@@ -1,6 +1,6 @@
 package by.romanovich.githubclient.data
 
-import by.romanovich.githubclient.domain.GitProjectEntity
+import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import by.romanovich.githubclient.domain.Repository
 import by.romanovich.githubclient.domain.User
 import io.reactivex.rxjava3.core.Single
@@ -19,6 +19,7 @@ class RepositoryImpl : Repository, UsersBase() {
 
     override fun getUserFromServer(name: String): Single<List<GitProjectEntity>> {
         return api.listRepos(name)
+
     }
 
     override fun getUserFromLocalStorage(): List<User> {
