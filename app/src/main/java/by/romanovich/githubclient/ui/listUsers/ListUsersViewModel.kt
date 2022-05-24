@@ -21,11 +21,8 @@ class ListUsersViewModel(override val id: String) : ViewModel(), UserContracts.V
         liveDataToObserve.value = AppState.Loading
 
         Thread {
-
             val user = repo.getUserFromLocalStorage()
-
             liveDataToObserve.postValue(AppState.Success(user))
-
         }.start()
     }
 }

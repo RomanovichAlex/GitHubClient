@@ -7,8 +7,8 @@ import androidx.core.view.isVisible
 import by.romanovich.githubclient.R
 import by.romanovich.githubclient.app
 import by.romanovich.githubclient.databinding.CardUserFragmentBinding
-import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import by.romanovich.githubclient.domain.User
+import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import by.romanovich.githubclient.ui.base.BaseFragment
 import by.romanovich.githubclient.ui.utils.AppState
 import java.util.*
@@ -47,11 +47,16 @@ class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentB
         viewModel.getProjectsRetrofit(name)
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(keyViewModelId, viewModel.id)
+    }
+
+
     private fun render(state: AppState) {
 
         when (state) {
             is AppState.Success<*> -> {
-
                 val project: List<GitProjectEntity> = state.data as List<GitProjectEntity>
                 adapter.setProject(project)
             }

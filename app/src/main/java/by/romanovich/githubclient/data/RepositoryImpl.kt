@@ -1,8 +1,8 @@
 package by.romanovich.githubclient.data
 
-import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import by.romanovich.githubclient.domain.Repository
 import by.romanovich.githubclient.domain.User
+import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
