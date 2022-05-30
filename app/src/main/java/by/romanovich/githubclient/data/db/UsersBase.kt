@@ -1,4 +1,4 @@
-package by.romanovich.githubclient.data
+package by.romanovich.githubclient.data.db
 
 import by.romanovich.githubclient.R
 import by.romanovich.githubclient.domain.Title

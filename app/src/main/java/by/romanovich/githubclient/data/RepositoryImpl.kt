@@ -1,21 +1,14 @@
 package by.romanovich.githubclient.data
 
+import by.romanovich.githubclient.data.db.UsersBase
+import by.romanovich.githubclient.data.retrofit.GitHubApi
 import by.romanovich.githubclient.domain.Repository
 import by.romanovich.githubclient.domain.User
 import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import io.reactivex.rxjava3.core.Single
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 
 
-class RepositoryImpl : Repository, UsersBase() {
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.github.com/")
-        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-    private val api: GitHubApi = retrofit.create(GitHubApi::class.java)
+class RepositoryImpl(private val api: GitHubApi) : Repository {
 
     override fun getUserFromServer(name: String): Single<List<GitProjectEntity>> {
         return api.listRepos(name)
@@ -23,6 +16,6 @@ class RepositoryImpl : Repository, UsersBase() {
     }
 
     override fun getUserFromLocalStorage(): List<User> {
-        return users
+        return UsersBase().users
     }
 }
