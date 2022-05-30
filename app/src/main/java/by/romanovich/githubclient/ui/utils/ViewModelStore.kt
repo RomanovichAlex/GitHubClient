@@ -18,6 +18,7 @@ class ViewModelStore {
 }
 
 
+
 interface BaseViewModel {
     val id: String
 }
