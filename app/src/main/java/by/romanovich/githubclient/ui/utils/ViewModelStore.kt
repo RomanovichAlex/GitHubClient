@@ -16,7 +16,6 @@ class ViewModelStore {
         return storage[id]
     }
 }
-
 interface BaseViewModel {
     val id: String
 }
