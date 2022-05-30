@@ -13,6 +13,7 @@ class App : Application() {
     val viewModelStore by lazy { ViewModelStore() }
 }
 
+//расширение
 val Context.app: App
     get() = applicationContext as App
 

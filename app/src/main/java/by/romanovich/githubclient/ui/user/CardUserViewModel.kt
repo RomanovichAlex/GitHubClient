@@ -22,8 +22,10 @@ class CardUserViewModel(override val id: String) : ViewModel(), CardContracts.Vi
 
     override fun getProjects(name: String) {
         liveDataToObserve.value = AppState.Loading
-        val project = repo.getUserFromServer(name)
-        liveDataToObserve.postValue(AppState.Success(project))
+        Thread {
+            val project = repo.getUserFromServer(name)
+            liveDataToObserve.postValue(AppState.Success(project))
+        }.start()
     }
 
     override fun getProjectsRetrofit(name: String) {

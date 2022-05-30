@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import by.romanovich.githubclient.R
 import by.romanovich.githubclient.databinding.RepoItemLayoutBinding
-import by.romanovich.githubclient.domain.GitProjectEntity
+import by.romanovich.githubclient.domain.entities.GitProjectEntity
 
 
 class GitProjectsAdapter : RecyclerView.Adapter<GitProjectsAdapter.RepoItemViewHolder>() {

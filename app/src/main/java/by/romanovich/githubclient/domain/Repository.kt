@@ -1,5 +1,6 @@
 package by.romanovich.githubclient.domain
 
+import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import io.reactivex.rxjava3.core.Single
 
 interface Repository {

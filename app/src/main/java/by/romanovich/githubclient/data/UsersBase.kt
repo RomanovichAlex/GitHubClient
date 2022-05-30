@@ -14,12 +14,12 @@ open class UsersBase {
                 "borhammere",
                 20,
                 R.drawable.ic_user,
-                listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
+                listOf("defunkt", "Work2", "Work3", "Work4", "Work5", "Work6")
             )
         ),
         User(
             Title(
-                "User3",
+                "wycats",
                 20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
@@ -27,7 +27,7 @@ open class UsersBase {
         ),
         User(
             Title(
-                "User4",
+                "ivey",
                 20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")
@@ -35,7 +35,7 @@ open class UsersBase {
         ),
         User(
             Title(
-                "User5",
+                "brynary",
                 20,
                 R.drawable.ic_user,
                 listOf("Work1", "Work2", "Work3", "Work4", "Work5", "Work6")

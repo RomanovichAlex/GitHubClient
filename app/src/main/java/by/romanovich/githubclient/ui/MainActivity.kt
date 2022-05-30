@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity(), ListUsersFragment.Controller {
 
         if (savedInstanceState == null) {
             val listUsersFragment: Fragment = ListUsersFragment()
+            //для сохранения фрагмента и что бы не пересоздавался новый фрагмент(говорим что не нужно уничтожать фрагмент), вызовется онДестройвью но не вызовется онДестрой
+            listUsersFragment.retainInstance = true
             supportFragmentManager.beginTransaction()
                 .add(binding.mainContainer.id, listUsersFragment)
                 .commit()
