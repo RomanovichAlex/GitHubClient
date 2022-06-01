@@ -7,10 +7,12 @@ import androidx.core.view.isVisible
 import by.romanovich.githubclient.R
 import by.romanovich.githubclient.app
 import by.romanovich.githubclient.databinding.CardUserFragmentBinding
+import by.romanovich.githubclient.domain.Repository
 import by.romanovich.githubclient.domain.User
 import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import by.romanovich.githubclient.ui.base.BaseFragment
 import by.romanovich.githubclient.ui.utils.AppState
+import org.koin.android.ext.android.inject
 import java.util.*
 
 
@@ -19,6 +21,7 @@ class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentB
     private val keyViewModelId = "key_card_view_model"
     private val adapter = GitProjectsAdapter()
     private var name: String = ""
+    private val repo: Repository by inject()
 
     private lateinit var viewModel: CardUserViewModel
 
@@ -36,7 +39,7 @@ class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentB
             viewModel = app.viewModelStore.getViewModel(viewModelId) as CardUserViewModel
         } else {
             val id = UUID.randomUUID().toString()
-            viewModel = CardUserViewModel(id)
+            viewModel = CardUserViewModel(id, repo)
             app.viewModelStore.saveViewModel(viewModel)
         }
 

@@ -1,4 +1,4 @@
-package by.romanovich.githubclient.data
+package by.romanovich.githubclient.data.retrofit
 
 import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import io.reactivex.rxjava3.core.Single

@@ -8,9 +8,11 @@ import androidx.core.view.isVisible
 import by.romanovich.githubclient.R
 import by.romanovich.githubclient.app
 import by.romanovich.githubclient.databinding.ListUsersFragmentBinding
+import by.romanovich.githubclient.domain.Repository
 import by.romanovich.githubclient.domain.User
 import by.romanovich.githubclient.ui.base.BaseFragment
 import by.romanovich.githubclient.ui.utils.AppState
+import org.koin.android.ext.android.inject
 import java.util.*
 
 
@@ -21,6 +23,7 @@ class ListUsersFragment :
     private val adapter = UsersAdapter { user ->
         controller.openScreen(user)
     }
+    private val repo: Repository by inject()
 
     private lateinit var viewModel: ListUsersViewModel
     private val controller by lazy { activity as Controller }
@@ -35,7 +38,7 @@ class ListUsersFragment :
             viewModel = app.viewModelStore.getViewModel(viewModelId) as ListUsersViewModel
         } else {
             val id = UUID.randomUUID().toString()
-            viewModel = ListUsersViewModel(id)
+            viewModel = ListUsersViewModel(id, repo)
             app.viewModelStore.saveViewModel(viewModel)
         }
 
