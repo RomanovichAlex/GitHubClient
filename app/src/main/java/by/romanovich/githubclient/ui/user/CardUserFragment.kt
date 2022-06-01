@@ -12,8 +12,8 @@ import by.romanovich.githubclient.domain.User
 import by.romanovich.githubclient.domain.entities.GitProjectEntity
 import by.romanovich.githubclient.ui.base.BaseFragment
 import by.romanovich.githubclient.ui.utils.AppState
-import org.koin.android.ext.android.inject
 import java.util.*
+import javax.inject.Inject
 
 
 class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentBinding::inflate) {
@@ -21,7 +21,10 @@ class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentB
     private val keyViewModelId = "key_card_view_model"
     private val adapter = GitProjectsAdapter()
     private var name: String = ""
-    private val repo: Repository by inject()
+
+    @Inject
+    lateinit var repo: Repository
+
 
     private lateinit var viewModel: CardUserViewModel
 
@@ -31,7 +34,7 @@ class CardUserFragment : BaseFragment<CardUserFragmentBinding>(CardUserFragmentB
         val user = arguments?.getParcelable<User>("USER")
         binding.nameUserTextView.text = user?.title?.name ?: ""
         user?.title?.image?.let { binding.userImageView.setImageResource(it) }
-
+        app.appDependenciesComponent.injectUser(this)
         binding.projectsRecyclerView.adapter = adapter
 
         if (savedInstanceState != null) {

@@ -12,8 +12,9 @@ import by.romanovich.githubclient.domain.Repository
 import by.romanovich.githubclient.domain.User
 import by.romanovich.githubclient.ui.base.BaseFragment
 import by.romanovich.githubclient.ui.utils.AppState
-import org.koin.android.ext.android.inject
+
 import java.util.*
+import javax.inject.Inject
 
 
 class ListUsersFragment :
@@ -23,7 +24,9 @@ class ListUsersFragment :
     private val adapter = UsersAdapter { user ->
         controller.openScreen(user)
     }
-    private val repo: Repository by inject()
+
+    @Inject
+    lateinit var repo: Repository
 
     private lateinit var viewModel: ListUsersViewModel
     private val controller by lazy { activity as Controller }
@@ -31,6 +34,7 @@ class ListUsersFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        app.appDependenciesComponent.injectListUsers(this)
         binding.usersRecyclerView.adapter = adapter
 
         if (savedInstanceState != null) {
