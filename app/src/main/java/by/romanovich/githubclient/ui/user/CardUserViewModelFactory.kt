@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import by.romanovich.githubclient.domain.Repository
 
 
-class CardUserViewModelFactory(private val id: String, private val repo: Repository) : ViewModelProvider.Factory {
+class CardUserViewModelFactory(private val id: String, private val repo: Repository) :
+    ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return CardUserViewModel(id, repo) as T
     }
