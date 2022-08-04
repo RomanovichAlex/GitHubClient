@@ -1,8 +1,8 @@
 package by.romanovich.githubclient.di
 
 
-import by.romanovich.githubclient.data.RepositoryImpl
 import by.romanovich.githubclient.data.retrofit.GitHubApi
+import by.romanovich.githubclient.data.retrofit.RepositoryImpl
 import by.romanovich.githubclient.domain.Repository
 import dagger.Module
 import dagger.Provides

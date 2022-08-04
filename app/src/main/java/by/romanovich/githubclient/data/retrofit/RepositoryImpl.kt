@@ -1,7 +1,6 @@
-package by.romanovich.githubclient.data
+package by.romanovich.githubclient.data.retrofit
 
 import by.romanovich.githubclient.data.db.UsersBase
-import by.romanovich.githubclient.data.retrofit.GitHubApi
 import by.romanovich.githubclient.domain.Repository
 import by.romanovich.githubclient.domain.User
 import by.romanovich.githubclient.domain.entities.GitProjectEntity
